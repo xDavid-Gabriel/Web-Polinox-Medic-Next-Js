@@ -34,7 +34,7 @@ export const SCategorias = ({ categorias }: Props) => {
             {/* <div tw="bg-blue-400 rounded-[20px 20px 0px 0px;] w-full h-[300px]"></div> */}
             <div tw="flex flex-col gap-3 items-center  px-8">
               <strong tw="text-[19px] xl:text-[21px] font-bold text-navy-blue">
-                {fn.capitalize(categoria.nombre)}
+                {categoria.nombre}
               </strong>
             </div>
             <Link href={`/productos/${categoria.slug}`}>
