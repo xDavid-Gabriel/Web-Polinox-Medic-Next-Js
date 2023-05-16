@@ -12,7 +12,7 @@ export const Button = styled.button.attrs({ className: '' })(
     variant === 'tertiary' && tw`!bg-aqua text-white hover:!bg-aqua/80`,
 
     variant === 'whatsapp' &&
-      tw`rounded-full bg-[linear-gradient(36.13deg, #2EB843 14.03%, #62D96F 84.6%);] text-white  hover:scale-[1.1] border-0 w-[5rem] h-[5rem] text-5xl grid place-content-center z-20 fixed bottom-7 right-7 animate-bounce`,
+      tw`rounded-full bg-[linear-gradient(36.13deg, #2EB843 14.03%, #62D96F 84.6%);] text-white  hover:scale-[1.1] border-0 w-[3.5rem] h-[3.5rem] text-4xl  grid place-content-center z-20 fixed bottom-7 right-7 animate-bounce lg:w-[5rem] lg:h-[5rem] lg:text-5xl`,
     ,
   ],
 )

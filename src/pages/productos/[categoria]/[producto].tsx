@@ -50,7 +50,7 @@ const ProductosDetailPage = ({ productoEncontrado, categoria }: Props) => {
             target="_blank"
           >
             <uiComps.Button variant="tertiary" css={tw`w-fit`}>
-              Solicitar cotiaión
+              Solicitar cotización
             </uiComps.Button>
           </a>
         </div>

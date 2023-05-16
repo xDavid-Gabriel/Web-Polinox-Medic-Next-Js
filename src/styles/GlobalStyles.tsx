@@ -3,7 +3,7 @@ import tw, { theme, globalStyles } from 'twin.macro'
 
 const GlobalStyles = createGlobalStyle`
   body{
-    ${tw`text-smoky-gray bg-light-blue-grey`}
+    ${tw`text-[14px] md:text-[16px] text-smoky-gray bg-light-blue-grey`}
   }
   img{
     ${tw`w-full h-full object-cover`}

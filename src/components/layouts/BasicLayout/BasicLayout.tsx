@@ -71,7 +71,7 @@ export const BasicLayout: FC<PropsWithChildren<Props>> = ({
             stylesImg={tw`w-[10rem] text-center mx-auto sm:mx-0 sm:col-span-2 lg:col-span-3`}
           />
           <div tw="flex flex-col gap-6 text-center sm:text-start">
-            <uiComps.H3 variant="secondary">Contactanos</uiComps.H3>
+            <uiComps.H3 variant="secondary">Contáctenos</uiComps.H3>
             <ul tw="flex flex-col gap-4 font-medium items-center sm:items-start">
               <li>
                 <a
