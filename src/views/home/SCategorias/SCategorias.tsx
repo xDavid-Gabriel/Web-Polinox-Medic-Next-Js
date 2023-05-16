@@ -1,7 +1,6 @@
 import tw from 'twin.macro'
 import { uiComps } from '../../../components/ui/index'
 import { ICategoria } from '../../../interfaces'
-import { montserrat } from '../../../utils'
 import Link from 'next/link'
 import { fn } from '../../../utils/functions'
 interface Props {
@@ -34,12 +33,9 @@ export const SCategorias = ({ categorias }: Props) => {
             />
             {/* <div tw="bg-blue-400 rounded-[20px 20px 0px 0px;] w-full h-[300px]"></div> */}
             <div tw="flex flex-col gap-3 items-center  px-8">
-              <uiComps.H3
-                className={montserrat.className}
-                css={tw`font-bold text-navy-blue`}
-              >
+              <strong tw="text-[19px] xl:text-[21px] font-bold text-navy-blue">
                 {fn.capitalize(categoria.nombre)}
-              </uiComps.H3>
+              </strong>
             </div>
             <Link href={`/productos/${categoria.slug}`}>
               <uiComps.Button variant="tertiary" css={tw`mt-auto`}>

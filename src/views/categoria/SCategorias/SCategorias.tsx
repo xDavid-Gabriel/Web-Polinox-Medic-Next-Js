@@ -86,12 +86,9 @@ export const SCategorias = ({ categoriaAll, findCategoria }: Props) => {
               />
               {/* <div tw="bg-blue-400 rounded-[20px 20px 0px 0px;] w-full h-[300px]"></div> */}
               <div tw="flex flex-col gap-3 items-center  px-8">
-                <uiComps.H3
-                  className={montserrat.className}
-                  css={tw`font-bold text-navy-blue`}
-                >
+                <strong tw="text-[19px] xl:text-[21px] font-bold text-navy-blue">
                   {producto.nombre}
-                </uiComps.H3>
+                </strong>
                 <span tw="flex gap-4 items-center text-aqua font-semibold mb-4">
                   <p>{producto.marca}</p> | <p>{producto.procedencia}</p>
                 </span>

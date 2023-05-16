@@ -103,7 +103,7 @@ export const BasicLayout: FC<PropsWithChildren<Props>> = ({
 
           <div tw="flex flex-col gap-6 text-center sm:text-start sm:justify-self-center">
             <uiComps.H3 variant="secondary">Enlaces</uiComps.H3>
-            <ul tw="flex flex-col gap-4 font-medium">
+            <ul tw="flex items-center sm:items-start flex-col gap-4 font-medium">
               <li tw="w-fit" className="group">
                 <Link href="/">Inicio</Link>
                 <hr
