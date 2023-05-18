@@ -3,6 +3,7 @@ import { OptimizedImage } from './OptimizedImg/OptimizedImg'
 import { Header } from './Header/Header'
 import { H1, H2, H3 } from './Typography/Typography'
 import { Form } from './Form/Form'
+import { BasicModal } from './BasicModal/BasicModal'
 
 export const uiComps = {
   Button,
@@ -12,4 +13,5 @@ export const uiComps = {
   H1,
   H2,
   H3,
+  BasicModal,
 }

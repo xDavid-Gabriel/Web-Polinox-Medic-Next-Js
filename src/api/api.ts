@@ -3,8 +3,13 @@ import axios, { AxiosRequestConfig } from 'axios'
 export const api = axios.create({
   baseURL: 'https://api.polinoxmedic.com',
 })
-
-export const formPost = async (data: any) => {
+interface FormType {
+  nombre: string
+  celular: string
+  correo: string
+  mensaje: string
+}
+export const formPost = async (data: FormType) => {
   try {
     let config: AxiosRequestConfig = {
       method: 'post',
@@ -19,7 +24,7 @@ export const formPost = async (data: any) => {
       throw new Error('No se  pudo enviar la información')
     }
 
-    return response
+    return response.data
   } catch (error) {
     console.log(error)
   }
