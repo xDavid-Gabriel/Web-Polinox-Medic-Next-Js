@@ -28,9 +28,14 @@ export const SHero = () => {
           </p>
         </div>
         <div tw="relative w-fit">
-          <uiComps.Button css={tw`relative z-[5] px-[4rem]`}>
-            Ver Catalogo
-          </uiComps.Button>
+          <a
+            href="https://assets.polinoxmedic.com/documentos/catalogo-polinox.pdf"
+            target="_blank"
+          >
+            <uiComps.Button css={tw`relative z-[5] px-[4rem]`}>
+              Ver Catalogo
+            </uiComps.Button>
+          </a>
           <img
             src="/img/decoracion.svg"
             tw="w-[57px] absolute top-[-5px] z-[1] right-0 translate-x-[25%]"

@@ -1,5 +1,6 @@
 import { uiComps } from '../../../components/ui/index'
 import tw from 'twin.macro'
+import Link from 'next/link'
 export const SCatalogo = () => {
   return (
     <section tw="mt-10 lg:mt-20 xl:mt-32 container">
@@ -16,9 +17,12 @@ export const SCatalogo = () => {
             Visualice nuestros catálogos virtual con las marcas posicionadas en
             el mercado peruano.
           </p>
-          <div>
+          <a
+            href="https://assets.polinoxmedic.com/documentos/catalogo-polinox.pdf"
+            target="_blank"
+          >
             <uiComps.Button variant="tertiary">Ver catálogo</uiComps.Button>
-          </div>
+          </a>
         </div>
       </div>
     </section>
