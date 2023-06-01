@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, useEffect } from 'react'
 import { uiComps } from '../../ui'
 import Head from 'next/head'
 import { ICategoria } from '../../../interfaces'
@@ -13,7 +13,7 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useGlobal } from '../../../context/GlobalContext'
-import Script from 'next/script'
+
 interface Props {
   title: string
   categorias: ICategoria[]
@@ -26,37 +26,6 @@ export const BasicLayout: FC<PropsWithChildren<Props>> = ({
   const router = useRouter()
 
   const { number, text } = useGlobal()
-
-  // <!-- Messenger Plugin de chat Code -->
-  //   <div id="fb-root"></div>
-
-  //   <!-- Your Plugin de chat code -->
-  //   <div id="fb-customer-chat" class="fb-customerchat">
-  //   </div>
-
-  //   <script>
-  //     var chatbox = document.getElementById('fb-customer-chat');
-  //     chatbox.setAttribute("page_id", "635345120196608");
-  //     chatbox.setAttribute("attribution", "biz_inbox");
-  //   </script>
-
-  //   <!-- Your SDK code -->
-  //   <script>
-  //     window.fbAsyncInit = function() {
-  //       FB.init({
-  //         xfbml            : true,
-  //         version          : 'v17.0'
-  //       });
-  //     };
-
-  //     (function(d, s, id) {
-  //       var js, fjs = d.getElementsByTagName(s)[0];
-  //       if (d.getElementById(id)) return;
-  //       js = d.createElement(s); js.id = id;
-  //       js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
-  //       fjs.parentNode.insertBefore(js, fjs);
-  //     }(document, 'script', 'facebook-jssdk'));
-  //   </script>
 
   return (
     <>
@@ -78,33 +47,7 @@ export const BasicLayout: FC<PropsWithChildren<Props>> = ({
           <FaWhatsapp />
         </uiComps.Button>
       </a>
-      <>
-        <div id="fb-root"></div>
-        <div id="fb-customer-chat" className="fb-customerchat"></div>
 
-        <Script strategy="lazyOnload">
-          {`
-          var chatbox = document.getElementById('fb-customer-chat');
-          chatbox.setAttribute("page_id", "635345120196608");
-          chatbox.setAttribute("attribution", "biz_inbox");
-
-          window.fbAsyncInit = function() {
-            FB.init({
-              xfbml: true,
-              version: 'v17.0'
-            });
-          };
-
-          (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
-        `}
-        </Script>
-      </>
       <div tw="hidden fixed left-[4rem] sm:flex flex-col gap-5 top-[40rem] z-[3] items-center">
         <a
           href="https://www.facebook.com/PolinoxMedic"
