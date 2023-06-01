@@ -5,7 +5,10 @@ export const SCta = () => {
   return (
     <section tw="relative bg-[url(/img/home/cta.webp)] bg-no-repeat bg-cover mt-10 md:mt-20 xl:mt-32">
       <div tw="container py-10 sm:py-[9rem]">
-        <div tw="text-white max-w-[600px] flex flex-col gap-7 ">
+        <div
+          tw="text-white max-w-[600px] flex flex-col gap-7 "
+          data-aos="fade-up"
+        >
           <uiComps.H2>Equipo Médicos</uiComps.H2>
           <p>
             It is a long established fact that a reader will be distracted by

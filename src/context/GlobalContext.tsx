@@ -4,7 +4,10 @@ import {
   createContext,
   useContext,
   useState,
+  useEffect,
 } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 interface ContextProps {
   number: string
@@ -29,6 +32,11 @@ export const GlobalProvider: FC<PropsWithChildren> = ({ children }) => {
     setText,
   }
 
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    })
+  }, [])
   return (
     <GlobalContext.Provider value={{ ...data }}>
       {children}

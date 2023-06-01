@@ -9,7 +9,10 @@ export const SMarcas = () => {
   return (
     <section tw="mt-20 xl:mt-32">
       <div tw="container">
-        <div tw="max-w-[1000px] mx-auto text-center flex flex-col gap-6">
+        <div
+          tw="max-w-[1000px] mx-auto text-center flex flex-col gap-6"
+          data-aos="fade-up"
+        >
           <uiComps.H2 css={tw`text-aqua`}>Nuestras Marcas</uiComps.H2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
