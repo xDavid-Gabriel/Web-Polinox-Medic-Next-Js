@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { ICategoria } from '../../../interfaces'
 import tw from 'twin.macro'
 import {
+  FaClock,
   FaEnvelope,
   FaFacebook,
   FaInstagram,
@@ -99,6 +100,13 @@ export const BasicLayout: FC<PropsWithChildren<Props>> = ({
                   <FaSearchLocation size={20} tw="flex-none" />
                   Av. 28 de Julio. nro 404 <br /> La Tomilla Cayma Arequipa Perú
                 </a>
+              </li>
+              <li tw="flex gap-3">
+                <FaClock size={20} tw="flex-none" />
+                <p>
+                  <span tw="block">Horario de atención:</span> Lunes a viernes
+                  de 8:30 am a 6:00 pm. <br /> Sábados de 9:15 am a 1:00 pm
+                </p>
               </li>
             </ul>
           </div>

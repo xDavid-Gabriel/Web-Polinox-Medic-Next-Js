@@ -4,13 +4,17 @@ import { uiComps } from '../../../components/ui'
 export const SQuienesSomos = () => {
   return (
     <section tw="container lg:grid mt-12">
-      <uiComps.OptimizedImage
-        src="/img/quienes-somos/quienes-somos.webp"
-        alt="Quienes Somos"
-        loading="eager"
-        stylesImg={tw`col-start-1 row-start-1`}
-      />
-      <div tw="max-w-[500px] w-full bg-white col-start-1 row-start-1 shadow-[0px 10px 65px rgba(1, 168, 177, 0.13)] rounded-[30px] flex flex-col gap-5 mt-10 p-8 mx-auto lg:ml-auto  lg:mt-20 lg:py-[5rem] lg:px-[4rem] lg:mr-20">
+      <figure data-aos="fade-right" tw="col-start-1 row-start-1 z-[-1]">
+        <uiComps.OptimizedImage
+          src="/img/quienes-somos/quienes-somos.webp"
+          alt="Quienes Somos"
+          loading="eager"
+        />
+      </figure>
+      <div
+        tw="max-w-[500px] w-full bg-white col-start-1 row-start-1 shadow-[0px 10px 65px rgba(1, 168, 177, 0.13)] rounded-[30px] flex flex-col gap-5 mt-10 p-8 mx-auto lg:ml-auto  lg:mt-20 lg:py-[5rem] lg:px-[4rem] lg:mr-20"
+        data-aos="fade-up"
+      >
         <uiComps.H1 css={tw`text-aqua text-center`}>Quienes Somos</uiComps.H1>
         <p>
           Bienvenidos a Polinox Medic SAC, una empresa peruana dedicada a la

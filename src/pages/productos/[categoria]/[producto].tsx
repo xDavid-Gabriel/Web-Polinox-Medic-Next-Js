@@ -13,19 +13,20 @@ const ProductosDetailPage = ({ productoEncontrado, categoria }: Props) => {
   let number = '988848573'
   let text = `Hola 👋,%0AQuisiera solicitar una cotización de este producto:%0A%0A*Nombre:* ${productoEncontrado.nombre}%0A*Marca:* ${productoEncontrado.marca}%0A*Procedencia:* ${productoEncontrado.procedencia}%0A%0APor favor, envíame detallado el costo y el tiempo estimado de entrega.%0A¡Gracias y saludos cordiales! 🤗`
 
-  console.log(productoEncontrado)
   return (
     <Layouts.BasicLayout
       title={`Producto | ${productoEncontrado.nombre}`}
       categorias={categoria}
     >
-      <section tw="container grid gap-10  pt-10 md:gap-20 md:grid-cols-2 md:pt-20 xl:pt-32">
-        <uiComps.OptimizedImage
-          src="https://d100mj7v0l85u5.cloudfront.net/s3fs-public/blog/los-10-equipos-medicos-mas-importantes-en-los-hospitales.png"
-          alt={productoEncontrado.nombre}
-          stylesImg={tw`md:h-[700px]`}
-        />
-        <div tw="max-w-[600px] flex flex-col gap-5">
+      <section tw="container grid gap-10  pt-10 md:gap-20 md:grid-cols-2 md:pt-20 xl:pt-32 overflow-hidden">
+        <figure data-aos="fade-right">
+          <uiComps.OptimizedImage
+            src="https://d100mj7v0l85u5.cloudfront.net/s3fs-public/blog/los-10-equipos-medicos-mas-importantes-en-los-hospitales.png"
+            alt={productoEncontrado.nombre}
+            stylesImg={tw`md:h-[700px]`}
+          />
+        </figure>
+        <div tw="max-w-[600px] flex flex-col gap-5" data-aos="fade-left">
           <uiComps.H1 css={tw`text-aqua`}>
             {productoEncontrado.nombre}
           </uiComps.H1>
@@ -55,9 +56,15 @@ const ProductosDetailPage = ({ productoEncontrado, categoria }: Props) => {
           </a>
         </div>
       </section>
-      {/* <h1>{productoEncontrado.nombre}</h1>
-      <img src={productoEncontrado.url_img} alt={productoEncontrado.nombre} />
-      <p>{productoEncontrado.descripcion}</p> */}
+      <section tw="container mt-10 lg:mt-20">
+        <uiComps.H2 css={tw`text-aqua my-8 lg:pb-[3rem] text-center`}>
+          Envíanos un mensaje
+        </uiComps.H2>
+        <div tw=" grid items-center lg:grid-cols-2 gap-10 lg:gap-20 ">
+          <img src="/img/contacto/contacto.svg" alt="contacto" />
+          <uiComps.Form />
+        </div>
+      </section>
     </Layouts.BasicLayout>
   )
 }

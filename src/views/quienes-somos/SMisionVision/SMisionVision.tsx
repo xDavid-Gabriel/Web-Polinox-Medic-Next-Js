@@ -4,8 +4,11 @@ import tw from 'twin.macro'
 export const SMisionVision = () => {
   return (
     <section tw="container mt-10 md:mt-20 xl:mt-32">
-      <div tw="flex flex-wrap gap-20 justify-center">
-        <div tw="max-w-[466px] text-center flex flex-col gap-2 items-center">
+      <div tw="flex flex-wrap gap-20 justify-center overflow-hidden">
+        <div
+          tw="max-w-[466px] text-center flex flex-col gap-2 items-center"
+          data-aos="fade-right"
+        >
           <uiComps.H2 css={tw`text-aqua`}>Misión</uiComps.H2>
           <FaTrophy size={40} tw="text-aqua" />
           <p>
@@ -16,7 +19,10 @@ export const SMisionVision = () => {
             postventa eficiente y oportuno.
           </p>
         </div>
-        <div tw="max-w-[466px] text-center flex flex-col gap-2 items-center">
+        <div
+          tw="max-w-[466px] text-center flex flex-col gap-2 items-center"
+          data-aos="fade-left"
+        >
           <uiComps.H2 css={tw`text-aqua`}>Visión</uiComps.H2>
           <FaEye size={40} tw="text-aqua" />
           <p>

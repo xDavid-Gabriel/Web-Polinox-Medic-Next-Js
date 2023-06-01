@@ -112,9 +112,7 @@ export const Form = () => {
             )}
           </div>
         </div>
-        <strong tw="sm:col-span-2 text-aqua flex items-center gap-5">
-          Envió a todo nivel nacional <FaTruck size={27} />
-        </strong>
+
         <Button
           css={tw`w-fit px-12`}
           type="submit"
@@ -168,30 +166,6 @@ export const Form = () => {
             </div>
           </>
         )}
-        {/* <strong tw="lg:text-xl">Se enviara con los siguientes datos:</strong>
-        <ul tw="flex flex-col gap-4 mt-5">
-          <li>
-            <strong>Nombre Completo :</strong> {formik.values.nombre}
-          </li>
-          <li>
-            <strong>Celular :</strong> {formik.values.celular}
-          </li>
-          <li>
-            <strong>Correo :</strong> {formik.values.correo}
-          </li>
-          <li>
-            <strong>Mensaje :</strong> {formik.values.mensaje}
-          </li>
-        </ul>
-        <div tw="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
-          <Button onClick={handleModalAccept}>Aceptar</Button>
-          <Button
-            css={tw`bg-red-500 text-white hover:bg-red-600`}
-            onClick={onOpenClose}
-          >
-            Cancelar
-          </Button>
-        </div> */}
       </BasicModal>
     </>
   )

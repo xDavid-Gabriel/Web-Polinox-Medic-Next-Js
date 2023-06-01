@@ -9,22 +9,43 @@ import {
   FaChevronRight,
   FaFacebook,
   FaInstagram,
+  FaChevronUp,
 } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 import { ICategoria } from '../../../interfaces'
 import { useRouter } from 'next/router'
 import { fn } from '../../../utils/functions'
 import { useGlobal } from '../../../context/GlobalContext'
-
+import styled from 'styled-components'
 interface Props {
   categorias: ICategoria[]
 }
+
+const MenuMobile = styled.div`
+  position: fixed;
+  top: 109.09px;
+  transition: clip-path 0.3s ease-in-out;
+  width: 100%;
+  left: 0;
+  background-color: #f3f5f9;
+  height: calc(100vh - 109.09px);
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0; /* Ancho del scrollbar */
+    height: 0; /* Altura del scrollbar */
+    background-color: transparent; /* Color de fondo del scrollbar */
+  }
+  @media (min-width: 1280px) {
+    display: none;
+  }
+`
 export const Header = ({ categorias }: Props) => {
   const router = useRouter()
   const { number, text } = useGlobal()
   const { categoria } = router.query
 
   const [toogle, setToogle] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const menuToogle = () => setToogle(prev => !prev)
 
@@ -137,8 +158,8 @@ export const Header = ({ categorias }: Props) => {
           {toogle ? <IoMdClose size={40} /> : <FaBars size={30} />}
         </button>
         {/* Menu Mobile */}
-        <div
-          tw="fixed top-[109.09px] [transition: clip-path 0.3s ease-in-out] w-full left-0 bg-[#F3F5F9] h-[calc(100vh - 109.09px)] overflow-auto xl:hidden"
+        <MenuMobile
+          // tw="fixed top-[109.09px] [transition: clip-path 0.3s ease-in-out] w-full left-0 bg-[#F3F5F9] h-[calc(100vh - 109.09px)] overflow-auto xl:hidden"
           css={
             toogle
               ? tw`[clip-path: circle(150% at top right)]`
@@ -170,18 +191,47 @@ export const Header = ({ categorias }: Props) => {
             </li>
 
             <li tw="w-[90%] max-w-[500px]">
-              <Link
-                href="/productos/dental"
-                tw="hover:(bg-aqua text-white) transition duration-300 py-2.5 px-8 rounded-full  border-[2px] border-transparent flex items-center gap-3"
+              <button
+                tw="flex items-center gap-3 hover:(bg-aqua text-white) transition duration-300 py-2.5 px-8 border-[2px] border-transparent w-full "
                 css={
-                  router.asPath.startsWith('/productos/dental')
-                    ? tw`bg-aqua text-white`
-                    : ''
+                  router.asPath.includes('/productos')
+                    ? isOpen
+                      ? tw`bg-aqua text-white rounded-[20px 20px 0 0]`
+                      : tw`bg-aqua text-white rounded-full`
+                    : isOpen
+                    ? tw`bg-aqua text-white rounded-[20px 20px 0 0]`
+                    : tw`rounded-full`
                 }
+                onClick={() => setIsOpen(prevState => !prevState)}
               >
                 Productos
-                <FaChevronDown size={12} />
-              </Link>
+                {isOpen ? (
+                  <FaChevronUp size={12} />
+                ) : (
+                  <FaChevronDown size={12} />
+                )}
+              </button>
+              <ul
+                tw="flex flex-col gap-5 px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white  "
+                css={isOpen ? tw`h-[500px] py-5` : tw`h-0 overflow-hidden`}
+              >
+                {categorias.map(producto => (
+                  <li>
+                    <Link
+                      href={`/productos/${producto.slug}`}
+                      tw="hover:bg-white hover:text-aqua block p-2 rounded-[10px]"
+                      css={
+                        categoria === producto.slug
+                          ? tw`bg-white text-aqua`
+                          : ''
+                      }
+                      onClick={menuToogle}
+                    >
+                      {fn.capitalize(producto.nombre)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </li>
             <li>
               <Link href="/contacto">
@@ -207,7 +257,7 @@ export const Header = ({ categorias }: Props) => {
               </div>
             </li>
           </ul>
-        </div>
+        </MenuMobile>
       </nav>
     </header>
   )

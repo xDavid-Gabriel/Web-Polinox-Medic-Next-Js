@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const SCatalogo = () => {
   return (
     <section tw="mt-10 lg:mt-20 xl:mt-32 container">
-      <div tw="grid sm:grid-cols-2 gap-10 sm:gap-20 max-w-[770px] mx-auto items-center">
+      <div tw="grid sm:grid-cols-2 gap-10 sm:gap-20 max-w-[770px] mx-auto items-center overflow-hidden">
         <div data-aos="fade-right">
           <uiComps.OptimizedImage
             src="/img/home/libro-catalogo.webp"
