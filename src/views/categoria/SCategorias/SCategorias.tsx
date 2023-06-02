@@ -45,27 +45,19 @@ export const SCategorias = ({ categoriaAll, findCategoria }: Props) => {
           >
             Listar categorias {isOpen ? <FaChevronUp /> : <FaChevronDown />}{' '}
           </button>
-          <div
-            tw="transition-[height] duration-300 flex flex-col gap-5"
-            css={isOpen ? tw`h-[492px]` : tw`h-0 overflow-hidden lg:h-auto`}
-          >
-            {categoriaAll.map(ctg => (
-              <div key={ctg.codigo} tw="lg:h-auto lg:w-full lg:mr-0">
-                <Link
-                  href={`/productos/${ctg.slug}`}
-                  tw="flex justify-between p-2.5 px-6 items-center text-white font-medium hover:bg-white hover:text-aqua rounded-[7px] transition duration-300"
-                  css={categoria === ctg.slug ? tw`bg-white text-aqua` : ''}
-                >
-                  {fn.capitalize(ctg.nombre)}
-                  {categoria === ctg.slug ? (
-                    <FaChevronRight size={12} />
-                  ) : (
-                    <FaChevronDown size={12} />
-                  )}
-                </Link>
-              </div>
-            ))}
-          </div>
+          <uiComps.ListCategorias
+            categorias={categoriaAll}
+            styleList={
+              isOpen
+                ? tw`h-[433px] md:h-[460px] transition-[height] duration-300 `
+                : tw` transition-[height] duration-300 h-0 overflow-hidden lg:h-auto`
+            }
+            categoria={categoria?.toString()}
+            //Estilos si se cumple
+            styleLink={tw`bg-white text-aqua`}
+            //Estilos si no se cumple
+            noStyleLink={tw`hover:bg-white hover:text-aqua text-white`}
+          />
         </div>
         {/* Lista de productos */}
         <div tw="grid lg:grid-cols-2 xl:grid-cols-3 gap-12">

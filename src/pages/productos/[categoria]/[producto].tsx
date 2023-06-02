@@ -4,13 +4,14 @@ import { ICategoria, IData, IProducto } from '../../../interfaces'
 import { Layouts } from '../../../components/layouts'
 import { uiComps } from '../../../components/ui/index'
 import tw from 'twin.macro'
+import { useGlobal } from '../../../context/GlobalContext'
 
 interface Props {
   productoEncontrado: IProducto
   categoria: ICategoria[]
 }
 const ProductosDetailPage = ({ productoEncontrado, categoria }: Props) => {
-  let number = '988848573'
+  const { number } = useGlobal()
   let text = `Hola 👋,%0AQuisiera solicitar una cotización de este producto:%0A%0A*Nombre:* ${productoEncontrado.nombre}%0A*Marca:* ${productoEncontrado.marca}%0A*Procedencia:* ${productoEncontrado.procedencia}%0A%0APor favor, envíame detallado el costo y el tiempo estimado de entrega.%0A¡Gracias y saludos cordiales! 🤗`
 
   return (

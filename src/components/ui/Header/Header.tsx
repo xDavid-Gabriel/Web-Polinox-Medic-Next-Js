@@ -14,9 +14,9 @@ import {
 import { IoMdClose } from 'react-icons/io'
 import { ICategoria } from '../../../interfaces'
 import { useRouter } from 'next/router'
-import { fn } from '../../../utils/functions'
 import { useGlobal } from '../../../context/GlobalContext'
 import styled from 'styled-components'
+import { ListCategorias } from '../ListCategorias/ListCategorias'
 interface Props {
   categorias: ICategoria[]
 }
@@ -113,25 +113,16 @@ export const Header = ({ categorias }: Props) => {
                 <FaChevronDown size={12} />
               </Link>
               <div tw="group-hover:block p-5  bg-white [filter: drop-shadow(0px 2px 4px rgba(159, 169, 173, 0.21))] hidden absolute translate-y-[48px] top-0  w-[400px] ">
-                <ul tw="flex flex-col gap-2">
-                  {categorias.map(producto => (
-                    <li key={producto.codigo}>
-                      <Link
-                        href={`/productos/${producto.slug}`}
-                        tw="flex justify-between p-2.5 px-6 items-center hover:bg-aqua hover:text-white rounded-[7px] transition duration-300"
-                        css={
-                          categoria === producto.slug
-                            ? tw`bg-aqua text-white`
-                            : ''
-                        }
-                      >
-                        {fn.capitalize(producto.nombre)}
-
-                        <FaChevronRight size={12} />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <ListCategorias
+                  //Lista
+                  categorias={categorias}
+                  //Para que pueda hacer la validacion
+                  categoria={categoria?.toString()}
+                  //Estilos si se cumple
+                  styleLink={tw`bg-aqua text-white`}
+                  //Estilos si no se cumple
+                  noStyleLink={tw`hover:bg-aqua hover:text-white`}
+                />
               </div>
             </li>
           </ul>
@@ -211,27 +202,22 @@ export const Header = ({ categorias }: Props) => {
                   <FaChevronDown size={12} />
                 )}
               </button>
-              <ul
-                tw="flex flex-col gap-5 px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white  "
-                css={isOpen ? tw`h-[500px] py-5` : tw`h-0 overflow-hidden`}
-              >
-                {categorias.map(producto => (
-                  <li>
-                    <Link
-                      href={`/productos/${producto.slug}`}
-                      tw="hover:bg-white hover:text-aqua block p-2 rounded-[10px]"
-                      css={
-                        categoria === producto.slug
-                          ? tw`bg-white text-aqua`
-                          : ''
-                      }
-                      onClick={menuToogle}
-                    >
-                      {fn.capitalize(producto.nombre)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <ListCategorias
+                styleList={
+                  isOpen
+                    ? tw`px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white h-[473px] md:h-[500px] py-5`
+                    : tw`px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white h-0 overflow-hidden`
+                }
+                //Lista
+                categorias={categorias}
+                //Para que pueda hacer la validacion
+                categoria={categoria?.toString()}
+                //Estilos si se cumple
+                styleLink={tw`bg-white text-aqua`}
+                //Estilos si no se cumple
+                noStyleLink={tw`hover:bg-white hover:text-aqua`}
+                menuToogle={menuToogle}
+              />
             </li>
             <li>
               <Link href="/contacto">
