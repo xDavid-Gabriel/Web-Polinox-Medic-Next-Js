@@ -205,7 +205,7 @@ export const Header = ({ categorias }: Props) => {
               <ListCategorias
                 styleList={
                   isOpen
-                    ? tw`px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white h-[473px] md:h-[500px] py-5`
+                    ? tw`px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white h-[606px] sm:h-[522px] md:h-[552px] py-5`
                     : tw`px-8 rounded-[0 0 10px 10px] transition-[height] duration-300 bg-aqua text-white h-0 overflow-hidden`
                 }
                 //Lista

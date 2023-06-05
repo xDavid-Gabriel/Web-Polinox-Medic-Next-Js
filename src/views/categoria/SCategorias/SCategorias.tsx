@@ -15,6 +15,7 @@ export const SCategorias = ({ categoriaAll, findCategoria }: Props) => {
   const router = useRouter()
   const { categoria } = router.query
   const [isOpen, setIsOpen] = useState(false)
+
   return (
     <section tw="container xl:mt-10">
       <div
@@ -60,16 +61,21 @@ export const SCategorias = ({ categoriaAll, findCategoria }: Props) => {
           />
         </div>
         {/* Lista de productos */}
-        <div tw="grid lg:grid-cols-2 xl:grid-cols-3 gap-12">
-          {findCategoria.productos.map(producto => (
-            <uiComps.Card
-              key={producto.codigo}
-              href={`/productos/${categoria}/${producto.slug}`}
-              src="https://d100mj7v0l85u5.cloudfront.net/s3fs-public/blog/los-10-equipos-medicos-mas-importantes-en-los-hospitales.png"
-              alt={producto.nombre}
-              nombre={producto.nombre}
-            />
-          ))}
+        <div tw="grid h-fit lg:grid-cols-2 xl:grid-cols-3 gap-12">
+          {findCategoria.productos.map(producto => {
+            const imageUrl = producto.url_img // Reemplaza esto con la URL de la imagen que deseas verificar
+            const fallbackImageUrl =
+              'https://d100mj7v0l85u5.cloudfront.net/s3fs-public/blog/los-10-equipos-medicos-mas-importantes-en-los-hospitales.png' // Reemplaza esto con la URL de la imagen estática de respaldo
+            return (
+              <uiComps.Card
+                key={producto.codigo}
+                href={`/productos/${categoria}/${producto.slug}`}
+                src={producto.url_img}
+                alt={producto.nombre}
+                nombre={producto.nombre}
+              />
+            )
+          })}
         </div>
       </div>
     </section>

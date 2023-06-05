@@ -30,6 +30,13 @@ export const SCategorias = ({ categorias }: Props) => {
             nombre={categoria.nombre}
           />
         ))}
+        <uiComps.Card
+          styleCard={tw`w-[300px] 2xl:w-[400px]`}
+          href="/productos/sistema-de-seguridad-para-ecografo"
+          src="https://d100mj7v0l85u5.cloudfront.net/s3fs-public/blog/los-10-equipos-medicos-mas-importantes-en-los-hospitales.png"
+          alt="Sistema de seguridad para ecografo"
+          nombre="Sistema de seguridad para ecografo"
+        />
       </div>
     </section>
   )

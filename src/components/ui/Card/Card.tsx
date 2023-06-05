@@ -4,6 +4,7 @@ import tw, { TwStyle } from 'twin.macro'
 import { fn } from '../../../utils/functions'
 import { OptimizedImage } from '../OptimizedImg/OptimizedImg'
 import { Button } from '../Button/Button'
+import { useState } from 'react'
 
 interface Props {
   href: string
@@ -13,6 +14,14 @@ interface Props {
   styleCard?: TwStyle
 }
 export const Card = ({ href, src, alt, nombre, styleCard }: Props) => {
+  const [imageError, setImageError] = useState(false)
+  const imageUrl = src // Reemplaza esto con la URL de la imagen que deseas verificar
+  const fallbackImageUrl =
+    'https://d100mj7v0l85u5.cloudfront.net/s3fs-public/blog/los-10-equipos-medicos-mas-importantes-en-los-hospitales.png' // Reemplaza esto con la URL de la imagen estática de respaldo
+
+  const handleImageError = () => {
+    setImageError(true)
+  }
   return (
     <Link
       href={href}
@@ -23,11 +32,21 @@ export const Card = ({ href, src, alt, nombre, styleCard }: Props) => {
       css={styleCard}
     >
       <figure tw="relative overflow-hidden">
-        <OptimizedImage
-          src={src}
-          alt={alt}
-          stylesImg={tw`rounded-[20px 20px 0px 0px;] h-[250px]`}
-        />
+        {imageError ? (
+          <OptimizedImage
+            src={fallbackImageUrl}
+            alt="Imagen de respaldo"
+            stylesImg={tw`rounded-[20px 20px 0px 0px;] h-[250px]`}
+          />
+        ) : (
+          <OptimizedImage
+            src={imageUrl}
+            alt={alt}
+            stylesImg={tw`rounded-[20px 20px 0px 0px;] h-[250px]`}
+            onError={handleImageError}
+          />
+        )}
+
         <div tw="bg-aqua/20 translate-y-[100%] absolute rounded-[20px 20px 0px 0px;] inset-0 transition duration-300 group-hover:translate-y-0"></div>
       </figure>
 

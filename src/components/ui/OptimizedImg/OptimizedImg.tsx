@@ -42,6 +42,7 @@ interface PropsImg {
   alt: string
   loading?: 'lazy' | 'eager' | undefined
   stylesImg?: TwStyle
+  onError?: () => void
 }
 
 export const OptimizedImage = ({
@@ -49,8 +50,17 @@ export const OptimizedImage = ({
   alt,
   loading = 'lazy',
   stylesImg,
+  onError,
 }: PropsImg) => {
-  return <img src={src} alt={alt} loading={loading} css={stylesImg} />
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading={loading}
+      css={stylesImg}
+      onError={onError}
+    />
+  )
 }
 
 interface OptimizedBgProps {
